@@ -384,7 +384,7 @@ public class BancoDeDados {
     }
 
     public void relatorioDeMesasLivres(List<Mesa> mesaList, Scanner sc){
-        System.out.println("========================= Relatório de Mesas Livres ========================= Relatório de Mesas Livres");
+        System.out.println("========================= Relatório de Mesas Livres =========================");
         for(int i = 0; i < mesaList.size(); i++){
             if("livre".compareToIgnoreCase(mesaList.get(i).getSituacao()) == 0){
                 System.out.println("Número da mesa: " + mesaList.get(i).getNumeroMesa());
