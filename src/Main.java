@@ -36,6 +36,9 @@ public class Main {
             opcao = sc.nextInt();
 
             switch (opcao){
+                case 0:
+                    System.out.println("Até logo!");
+                    break;
                 case 1:
                     bancoDeDados.cadastroDeMesa(mesaList, sc);
                     break;
@@ -89,7 +92,9 @@ public class Main {
                     break;
                 case 18:
                     bancoDeDados.relatorioDeMesasLivres(mesaList, sc);
-
+                default:
+                    System.out.println("Opção inválida. Informe uma opção válida");
+                    break;
             }
         }
     }

@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
 
@@ -110,6 +109,8 @@ public class BancoDeDados {
         String nome = sc.next();
         System.out.println("Informe o cpf: ");
         String cpf = sc.next();
+        System.out.println("Informe a data de nascimento (DD/MM/YYYY)");
+        String dataNascimento = sc.next();
         System.out.println("Informe o e-mail: ");
         String email = sc.next();
         System.out.println("Informe o telefone: ");
@@ -123,7 +124,7 @@ public class BancoDeDados {
         System.out.println("Informe o salário: ");
         Double salario = sc.nextDouble();
 
-        Garcom garcom = new Garcom(idGarcom, nome, cpf, email, telefone, sexo, salario);
+        Garcom garcom = new Garcom(idGarcom, nome, cpf, dataNascimento, email, telefone, sexo, salario);
         garcomList.add(garcom);
         System.out.println("Garçom cadsatrado com sucesso!");
     }
@@ -131,9 +132,10 @@ public class BancoDeDados {
     public void relatorioGarcons(List<Garcom> garcomList){
         System.out.println("================================= RELATÓRIO DE GARÇONS =================================");
         for(int i = 0; i < garcomList.size(); i++){
-            System.out.println("Código: " + garcomList.get(i).getIdGarcom());
+            System.out.println("CÓDIGO: " + garcomList.get(i).getIdGarcom());
             System.out.println("NOME: " + garcomList.get(i).getNome());
             System.out.println("CPF: " + garcomList.get(i).getCpf());
+            System.out.println("DATA DE NASCIMENTO: " + garcomList.get(i).getDataNascimento());
             System.out.println("E-MAIL: " + garcomList.get(i).getEmail());
             System.out.println("TELEFONE: " + garcomList.get(i).getTelefone());
             System.out.println("SEXO: " + garcomList.get(i).getSexo());
@@ -300,6 +302,7 @@ public class BancoDeDados {
             if(email.equalsIgnoreCase(garcomList.get(i).getEmail())){
                 System.out.println("NOME: " + garcomList.get(i).getNome());
                 System.out.println("CPF: " + garcomList.get(i).getCpf());
+                System.out.println("DATA DE NASCIMENTO: " + garcomList.get(i).getDataNascimento());
                 System.out.println("E-MAIL: " + garcomList.get(i).getEmail());
                 System.out.println("TELEFONE: " + garcomList.get(i).getTelefone());
                 System.out.println("SEXO: " + garcomList.get(i).getSexo());
