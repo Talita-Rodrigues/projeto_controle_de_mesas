@@ -1,14 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         int opcao = 999;
         BancoDeDados bancoDeDados = new BancoDeDados();
-        List<Mesa> mesaList = new ArrayList<>();
-        List<Garcom> garcomList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.US);
         while(opcao != 0){
@@ -37,61 +34,64 @@ public class Main {
 
             switch (opcao){
                 case 0:
+                    bancoDeDados.closeDataBase();
+                    sc.close();
                     System.out.println("Até logo!");
                     break;
                 case 1:
-                    bancoDeDados.cadastroDeMesa(mesaList, sc);
+                    bancoDeDados.cadastroDeMesa(sc);
                     break;
                 case 2:
-                    bancoDeDados.removerMesa(mesaList, sc);
+                    bancoDeDados.removerMesa(sc);
                     break;
                 case 3:
-                    bancoDeDados.buscarMesaPorNumero(mesaList, sc);
+                    bancoDeDados.buscarMesaPorNumero(sc);
                     break;
                 case 4:
-                    bancoDeDados.buscarMesaPelaCapacidade(mesaList, sc);
+                    bancoDeDados.buscarMesaPelaCapacidade(sc);
                     break;
                 case 5:
-                    bancoDeDados.relatorioMesas(mesaList);
+                    bancoDeDados.relatorioMesas();
                     break;
                 case 6:
-                    bancoDeDados.cadastrarGarcom(garcomList, sc);
+                    bancoDeDados.cadastrarGarcom(sc);
                     break;
                 case 7:
-                    bancoDeDados.removerGarcom(garcomList, mesaList, sc);
+                    bancoDeDados.removerGarcom(sc);
                     break;
                 case 8:
-                    bancoDeDados.vincularGarcomMesa(garcomList, mesaList, sc);
+                    bancoDeDados.vincularGarcomMesa(sc);
                     break;
                 case 9:
-                    bancoDeDados.desvincularGarcomMesa(mesaList, sc);
+                    bancoDeDados.desvincularGarcomMesa(sc);
                     break;
                 case 10:
-                    bancoDeDados.abrirMesa(mesaList, sc);
+                    bancoDeDados.abrirMesa(sc);
                     break;
                 case 11:
-                    bancoDeDados.reservarMesa(mesaList,sc);
+                    bancoDeDados.reservarMesa(sc);
                     break;
                 case 12:
-                    bancoDeDados.liberarMesa(mesaList, sc);
+                    bancoDeDados.liberarMesa(sc);
                     break;
                 case 13:
-                    bancoDeDados.relatorioGarcons(garcomList);
+                    bancoDeDados.relatorioGarcons();
                     break;
                 case 14:
-                    bancoDeDados.buscarGarcomPorEmail(garcomList, sc);
+                    bancoDeDados.buscarGarcomPorEmail(sc);
                     break;
                 case 15:
-                    bancoDeDados.relatorioDeMesasComUmaCapacidadeMaiorOuIgualAUmaDadaCapacidade(mesaList, sc);
+                    bancoDeDados.relatorioDeMesasComUmaCapacidadeMaiorOuIgualAUmaDadaCapacidade(sc);
                     break;
                 case 16:
-                    bancoDeDados.relatorioMesasPorGarcomOcupadas(mesaList, sc);
+                    bancoDeDados.relatorioMesasPorGarcomOcupadas(sc);
                     break;
                 case 17:
-                    bancoDeDados.relatorioDeMesasPorGarcomDesecupadas(mesaList, sc);
+                    bancoDeDados.relatorioDeMesasPorGarcomDesocupadas(sc);
                     break;
                 case 18:
-                    bancoDeDados.relatorioDeMesasLivres(mesaList, sc);
+                    bancoDeDados.relatorioDeMesasLivres();
+                    break;
                 default:
                     System.out.println("Opção inválida. Informe uma opção válida");
                     break;

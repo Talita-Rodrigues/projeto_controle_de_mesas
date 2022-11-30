@@ -3,14 +3,14 @@ public class Mesa {
     private Long numeroMesa;
     private String situacao;
     private Integer capacidadeMaxima;
-    private Garcom garcom;
+    private Long idGarcom;
 
-    public Mesa(Long idMesa, Long numeroMesa, String situacao, Integer capacidadeMaxima, Garcom garcom) {
+    public Mesa(Long idMesa, Long numeroMesa, String situacao, Integer capacidadeMaxima, Long idGarcom) {
         this.idMesa = idMesa;
         this.numeroMesa = numeroMesa;
         this.situacao = situacao;
         this.capacidadeMaxima = capacidadeMaxima;
-        this.garcom = garcom;
+        this.idGarcom = idGarcom;
     }
 
     public Long getIdMesa() {
@@ -29,15 +29,7 @@ public class Mesa {
         return capacidadeMaxima;
     }
 
-    public Garcom getGarcom() {
-        return garcom;
-    }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-
-    public void setGarcom(Garcom garcom) {
-        this.garcom = garcom;
+    public Long getIdGarcom() {
+        return idGarcom;
     }
 }
